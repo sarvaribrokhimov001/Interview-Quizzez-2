@@ -20,6 +20,7 @@
   font-family: monospace;
   margin: 10px;
   color: grey;
+  width: 900px;
 }
 
 .home__sections {
@@ -50,6 +51,14 @@
 
 .home__section__link:hover {
   color: red !important;
+}
+
+.home__not__found {
+  width: 100%;
+  text-align: center;
+  font-size: 30px;
+  color:red;
+  font-weight: bold;
 }
 
 @media (max-width: 500px) {

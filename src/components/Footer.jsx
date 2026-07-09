@@ -5,26 +5,16 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer__container">
-        <h2 className="footer__logo"> Documentation </h2>
+        <h2 className="footer__logo"> Interview 2 </h2>
 
         <ul className="footer__links">
           <li> <Link className="navbar__link" to="/home"> Home </Link> </li>
-          <li>
-  <Link className="navbar__link" to="/questions">
-    QUESTIONS
-  </Link>
-</li>
-
-<li>
-  <Link className="navbar__link" to="/answers">
-    ANSWERS
-  </Link>
-</li>
-
- <li><Link to="/quiz" className="navbar__link">QUIZ</Link></li>
+          <li> <Link className="navbar__link" to="/questions"> Questions </Link> </li>
+          <li> <Link className="navbar__link" to="/answers"> Answers </Link> </li>
+          <li> <Link className="navbar__link" to="/quiz"> Quiz </Link> </li>
         </ul>
         
-        <p className="footer__copy"> © 2026 Documentation | Built with React </p>
+        <p className="footer__copy"> © 2026 Interview Quizzez 2 | Built with React </p>
       </div>
     </footer>
   )}

@@ -69,8 +69,6 @@ const quizData = [
     options: ["Vue", "Angular", "React", "Node"],
     correctAnswer: "React"
   },
-
-  // ---------------- YANGI SAVOLLAR (11-40) ----------------
   {
     id: 11,
     category: "HTML",
@@ -701,7 +699,6 @@ const quizData = [
     options: ["page.js", "error.js", "loading.jsx", "layout.js"],
     correctAnswer: "loading.jsx"
   },
-  // ---------------- 101-200 SAVOLLAR (quizData DAVOMI) ----------------
   {
     id: 101,
     category: "HTML",
@@ -1403,5 +1400,4 @@ const quizData = [
     correctAnswer: "Vite"
   }
 ];
-
 export default quizData;

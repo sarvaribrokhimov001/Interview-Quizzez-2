@@ -10,43 +10,24 @@
       { name: "LOGIN", path: "/" },
       { name: "HOME", path: "/home" },
       { name: "QUESTIONS", path: "/questions" },
-  { name: "ANSWERS", path: "/answers" },
-  { name: "QUIZ", path: "/quiz" },
+      { name: "ANSWERS", path: "/answers" },
+      { name: "QUIZ", path: "/quiz" }
     ];
 
-    const filteredSections = sections.filter(item =>
-      item.name.toLowerCase().includes(search.toLowerCase())
-    );
+    const filteredSections = sections.filter(item => item.name.toLowerCase().includes(search.toLowerCase()));
 
     return (
       <div>
         <header>
           <h1 className='home__title'> Welcome to our Website </h1>
           <div className="search__wrapper">
-            <input 
-            className='app__input' 
-            type="search" 
-            placeholder="Search section..."
-            value={search}
-            onChange={(e) => setSearch(e.target.value)} />
-
+            <input className='app__input' type="search" placeholder='Write your choosing section' value={search} onChange={(e) => setSearch(e.target.value)} />
             <ThemeToggle darkMode={darkMode} setDarkMode={setDarkMode} />
           </div>
 
           <div className='home__description__container'>
             <h3 className='home__description__title'> Assalomu alaykum hurmatli foydalanuvchilar 😇 </h3>
-            <p className='home__description'> Ushbu loyiha FrontEnd dasturchilar uchun tayyorlangan
-Interview Questions, Answers va Quiz platformasidir.
- </p>
- <p className="home__description">
-
-Questions bo'limida interview savollari,
-
-Answers bo'limida ularning javoblari,
-
-Quiz bo'limida esa o'zingizni sinab ko'rishingiz mumkin.
-
-</p>
+            <p className='home__description'> Ushbu loyiha Interview ga tayyorgarlik ko'rayotganlar uchun maxsus yaratilgan. </p>
             {search !== "" && (
               <div className="home__sections">
                 <h4 className="home__sections__title"> Sections </h4>
@@ -57,7 +38,7 @@ Quiz bo'limida esa o'zingizni sinab ko'rishingiz mumkin.
                 ))}
               </div>
                 ) : (
-                <h3 className="not__found"> Section is not found ❌ </h3>
+                <h3 className="home__not__found"> Section is not found ❌ </h3>
                 )}
               </div>
             )}

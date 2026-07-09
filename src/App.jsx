@@ -53,22 +53,13 @@ const LoginForm = ({ handleSubmit }) => {
 };
 
 const App = () => {
-  const [isLogged, setIsLogged] = useState(
-    localStorage.getItem("logged") === "true"
-);
-  // const [darkMode, setDarkMode] = useState(true);
-  const [darkMode,setDarkMode]=useState(
-    JSON.parse(localStorage.getItem("theme")) ?? true
-);
+  const [isLogged, setIsLogged] = useState(localStorage.getItem("logged") === "true");
+  const [darkMode, setDarkMode] = useState(JSON.parse(localStorage.getItem("theme")) ?? true);
   const navigate = useNavigate();
 
-//   localStorage.setItem("logged","true");
-// setIsLogged(true);
-// localStorage.removeItem("logged");
-
-useEffect(()=>{
-localStorage.setItem("theme",JSON.stringify(darkMode));
-},[darkMode]);
+  useEffect(() => {
+    localStorage.setItem("theme", JSON.stringify(darkMode));
+  },[darkMode]);
 
   function showToast(message, color = "black", duration = 2000) {
     Toastify({
@@ -123,18 +114,18 @@ localStorage.setItem("theme",JSON.stringify(darkMode));
     }
 
     if (!usernameRegex.test(username)) {
-      return showToast("Username 5–15 harf va raqamdan iborat bo'lishi kerak!");
+      return showToast("Username 5–15 harf va raqamdan iborat bo'lishi kerak !");
     }
 
     if (!passwordRegex.test(password)) {
-      return showToast("Invalid password");
+      return showToast("Invalid password !");
     }
 
     if (!emailRegex.test(email)) {
-      return showToast("Invalid email address");
+      return showToast("Invalid email address !");
     }
 
-    toastMessage("Tizimga muvaffaqiyatli kirildi!", "black", 2500);
+    toastMessage("Tizimga muvaffaqiyatli kirildi !", "black", 2500);
 
     setTimeout(() => {
       setIsLogged(true);
@@ -156,41 +147,9 @@ localStorage.setItem("theme",JSON.stringify(darkMode));
     <Routes>
       <Route path="/" element={!isLogged ? <LoginForm handleSubmit={handleSubmit} /> : <Navigate to="/home" />} />
       <Route path="/home" element={<PrivateRoute isLogged={isLogged}> <Navbar /> <Home darkMode={darkMode} setDarkMode={setDarkMode} /> <Footer/> </PrivateRoute>} />
-      <Route
-  path="/questions"
-  element={
-    <PrivateRoute isLogged={isLogged}>
-      <Navbar />
-      <Questions darkMode={darkMode} setDarkMode={setDarkMode} />
-      <Footer />
-    </PrivateRoute>
-  }
-/>
-
-<Route
-  path="/answers"
-  element={
-    <PrivateRoute isLogged={isLogged}>
-      <Navbar />
-      <Answers darkMode={darkMode} setDarkMode={setDarkMode} />
-      <Footer />
-    </PrivateRoute>
-  }
-/>
-
-<Route
-    path="/quiz"
-    element={
-        <PrivateRoute isLogged={isLogged}>
-            <Navbar />
-            <Quiz
-                darkMode={darkMode}
-                setDarkMode={setDarkMode}
-            />
-            <Footer />
-        </PrivateRoute>
-    }
-/>
+      <Route path="/questions" element={<PrivateRoute isLogged={isLogged}> <Navbar /> <Questions darkMode={darkMode} setDarkMode={setDarkMode} /> <Footer /> </PrivateRoute>} />
+      <Route path="/answers" element={<PrivateRoute isLogged={isLogged}> <Navbar /> <Answers darkMode={darkMode} setDarkMode={setDarkMode} /> <Footer /> </PrivateRoute>} />
+      <Route path="/quiz" element={<PrivateRoute isLogged={isLogged}> <Navbar /> <Quiz darkMode={darkMode} setDarkMode={setDarkMode} /> <Footer /> </PrivateRoute>} />
       <Route path="*" element={<h1 className="error"> Page is not found </h1>} />
     </Routes>
   );
